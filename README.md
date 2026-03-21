@@ -65,4 +65,4 @@ This setup demonstrates practical skills in:
 - The project demonstrates containerization, reverse proxy setup, and cloud deployment best practices.
 
 - ## Screenshot
-- ![App Screenshot](./Full-Stack App Deployed.png)
+- ![App Screenshot](./screenshot.png)
