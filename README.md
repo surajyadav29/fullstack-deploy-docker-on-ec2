@@ -1,6 +1,6 @@
 # Full-Stack App Deployment on AWS EC2 using Docker
 
-This project demonstrates a full-stack application containerized using Docker and deployed on an AWS EC2 instance. It shows frontend-backend communication through Nginx as a reverse proxy and highlights cloud deployment practices.
+This project demonstrates deploying a full-stack React + Node.js app in Docker containers on AWS EC2, using Nginx as a reverse proxy for frontend-backend communication.
 
 ## Project Overview
 
@@ -15,11 +15,12 @@ The frontend and backend are deployed in separate Docker containers. Nginx route
 ## Project Structure
 
 project-root/
-1. backend/ # Node.js backend Docker setup
-2. frontend/ # React frontend Docker setup
-3. nginx/ # Nginx configuration (default.conf)
-4. Dockerfile # Dockerfiles for backend/frontend
-5. docker-compose.yml # Optional for local multi-container setup
+├── backend/          # Node.js backend Dockerfile + source code
+├── frontend/         # React frontend Dockerfile + source code
+├── nginx/            # Nginx configuration (default.conf)
+├── docker-compose.yml # Multi-container setup for local or EC2 deployment
+├── .dockerignore     # Optional ignore rules
+└── README.md
 
 ## Features
 
@@ -27,14 +28,19 @@ project-root/
 - Frontend communicates with backend through Nginx reverse proxy
 - Deployed on AWS EC2 using Docker
 - Demonstrates cloud deployment workflow
+- Nginx routes frontend at `/` and backend API at `/api/`.
+- Demonstrates building Docker images and pushing to Docker Hub.
+- Shows multi-container orchestration using docker-compose.
 
 ## Deployment Workflow
 
-1. Pushed project from VS Code to GitHub repository.
-2. Pulled the project repository on AWS EC2 instance.
-3. Built and ran frontend and backend Docker containers.
-4. Configured Nginx as a reverse proxy to route traffic to frontend and backend.
-5. Verified that the application is accessible publicly via EC2 public IP.
+1. Clone the GitHub repository to local machine.
+2. Build Docker images for frontend and backend.
+3. Push images to Docker Hub.
+4. SSH into AWS EC2 instance and pull images.
+5. Deploy containers with Docker Compose.
+6. Configure Nginx as reverse proxy for frontend and backend.
+7. Verify deployment via EC2 public IP.
 
 ## Access
 
@@ -54,14 +60,11 @@ You should see the frontend application, and any API requests to `/api/` will be
 
 ## Notes
 
-This setup demonstrates practical skills in:
-
-- Containerization and multi-container deployment
-- Reverse proxy setup with Nginx
-- Cloud deployment workflow
-- GitHub version control integration
-- Make sure EC2 security groups allow HTTP traffic on port 80.
-- All containers run inside a custom Docker network for seamless communication.
+- Implemented Docker-based multi-container architecture for full-stack application.
+- Configured Nginx as reverse proxy to route traffic between frontend and backend.
+- Deployed containers on AWS EC2 and configured security groups for public access.
+- Demonstrated cloud deployment workflow and Docker networking best practices.
+- Managed source code versioning with Git and GitHub.mmunication.
 - The project demonstrates containerization, reverse proxy setup, and cloud deployment best practices.
 
 - ## Screenshot
